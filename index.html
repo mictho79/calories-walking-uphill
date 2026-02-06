@@ -1,0 +1,195 @@
+<!-- File: index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Calories Burned Walking Uphill Calculator</title>
+    <meta
+      name="description"
+      content="Estimate calories burned walking uphill based on your weight, speed, incline, and duration. Simple, fast, and no signup."
+    />
+
+    <!-- (Optionnel) Canonical si tu gardes l’URL stable -->
+    <!-- <link rel="canonical" href="https://YOUR_DOMAIN/" /> -->
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <p class="kicker">Free calculator</p>
+        <h1>Calories Burned Walking Uphill</h1>
+        <p class="sub">
+          Estimate how many calories you burn when walking uphill using your
+          weight, walking speed, incline, and duration.
+        </p>
+      </header>
+
+      <section class="card" aria-label="Calculator">
+        <form class="grid" onsubmit="return false;">
+          <div class="field">
+            <label for="weightKg">Weight (kg)</label>
+            <input
+              id="weightKg"
+              type="number"
+              inputmode="decimal"
+              min="20"
+              max="250"
+              step="0.1"
+              placeholder="e.g. 80"
+              value="80"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="speedKmh">Speed (km/h)</label>
+            <input
+              id="speedKmh"
+              type="number"
+              inputmode="decimal"
+              min="0.5"
+              max="9"
+              step="0.1"
+              placeholder="e.g. 5"
+              value="5"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="gradePercent">Incline (%)</label>
+            <input
+              id="gradePercent"
+              type="number"
+              inputmode="decimal"
+              min="0"
+              max="30"
+              step="0.1"
+              placeholder="e.g. 8"
+              value="8"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="durationMin">Duration (minutes)</label>
+            <input
+              id="durationMin"
+              type="number"
+              inputmode="decimal"
+              min="1"
+              max="600"
+              step="1"
+              placeholder="e.g. 30"
+              value="30"
+              required
+            />
+          </div>
+
+          <div class="actions">
+            <button id="calcBtn" type="button">Calculate</button>
+            <p class="hint">
+              Tip: press <strong>Enter</strong> in a field to calculate.
+            </p>
+          </div>
+        </form>
+
+        <div id="result" class="result" aria-live="polite">
+          <p class="muted">
+            Enter your details and click <strong>Calculate</strong>.
+          </p>
+
+          <!-- Shown after calculation (JS removes .hidden) -->
+          <div id="method" class="method hidden">
+            <details>
+              <summary>How is this calculated?</summary>
+
+              <p>
+                This calculator uses the <strong>ACSM walking equation</strong>
+                to estimate oxygen consumption (VO₂) during uphill walking.
+              </p>
+
+              <pre class="equation">VO₂ (ml/kg/min) =
+0.1 × speed (m/min)
++ 1.8 × speed (m/min) × grade
++ 3.5</pre>
+
+              <p>Calories burned per minute are then estimated with:</p>
+
+              <pre class="equation">Calories / min =
+(VO₂ × weight ÷ 1000) × 5</pre>
+
+              <ul>
+                <li><strong>Speed</strong> is converted from km/h to m/min</li>
+                <li><strong>Grade</strong> is incline as a fraction (8% → 0.08)</li>
+                <li><strong>Weight</strong> is in kilograms</li>
+                <li><strong>5 kcal</strong> ≈ energy from 1 liter of oxygen</li>
+              </ul>
+
+              <p class="note">
+                Note: This calculator is intended for <strong>walking speeds</strong>
+                (up to ~9 km/h). Higher speeds are considered running and require
+                a different equation.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-label="How it works">
+        <h2>How this calculator works</h2>
+        <p>
+          Walking uphill burns more calories because your body works against
+          gravity. This tool provides an <strong>estimate</strong> based on your
+          weight, walking speed, incline, and duration.
+        </p>
+        <ul>
+          <li><strong>Weight:</strong> heavier body weight increases energy use.</li>
+          <li><strong>Speed:</strong> faster walking increases intensity.</li>
+          <li><strong>Incline:</strong> steeper hills increase effort significantly.</li>
+          <li><strong>Duration:</strong> more time = more total calories.</li>
+        </ul>
+
+        <h2>FAQ</h2>
+        <details>
+          <summary>Does walking uphill burn more calories than flat walking?</summary>
+          <p>
+            Yes. Incline increases the work your muscles need to do, so calorie
+            burn rises compared to walking on flat ground at the same speed.
+          </p>
+        </details>
+
+        <details>
+          <summary>How accurate is this result?</summary>
+          <p>
+            It’s an estimate. Real calorie burn varies with fitness level,
+            terrain, stride efficiency, and more. Use it for planning and
+            comparison, not medical decisions.
+          </p>
+        </details>
+
+        <details>
+          <summary>What incline should I use?</summary>
+          <p>
+            Use the treadmill grade (if applicable), or an approximate hill
+            grade in percent. For reference, 5–10% feels like a solid hill for
+            most people.
+          </p>
+        </details>
+      </section>
+
+      <footer class="footer">
+        <p class="muted">
+          Disclaimer: This calculator provides estimates for informational
+          purposes only.
+        </p>
+      </footer>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

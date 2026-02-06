@@ -1,0 +1,148 @@
+/* File: style.css */
+
+/* ---- Base ---- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  background: #0b1220;
+  color: #e8eefc;
+}
+
+a { color: inherit; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+p { margin: 0 0 12px; }
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 16px 56px;
+}
+
+/* ---- Hero ---- */
+.hero { margin-bottom: 18px; }
+.kicker {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+  margin: 0 0 10px;
+}
+.sub { opacity: .9; max-width: 62ch; }
+
+/* ---- Cards ---- */
+.card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  margin: 14px 0;
+}
+
+/* ---- Form ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  opacity: .9;
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: #e8eefc;
+  outline: none;
+}
+
+.field input::placeholder { opacity: .55; }
+.field input:focus {
+  border-color: rgba(120,170,255,0.65);
+  box-shadow: 0 0 0 3px rgba(120,170,255,0.18);
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+button {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  background: #7bb0ff;
+  color: #071023;
+}
+
+button:hover { filter: brightness(1.05); }
+button:active { transform: translateY(1px); }
+
+.hint { font-size: 13px; opacity: .8; margin: 0; }
+.muted { opacity: .75; }
+
+/* ---- Result ---- */
+.result {
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 14px;
+}
+
+.result h3 { margin-top: 0; }
+.result p { margin: 0 0 10px; }
+
+details {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.12);
+}
+summary { cursor: pointer; font-weight: 700; }
+
+/* ---- Equation block ---- */
+.method { margin-top: 12px; }
+
+.method .equation {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+.method .note {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Utility */
+.hidden { display: none; }
+
+/* ---- Footer ---- */
+.footer { margin-top: 18px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 680px) {
+  .grid { grid-template-columns: 1fr; }
+}
